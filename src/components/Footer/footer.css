@@ -1,0 +1,35 @@
+.footer-container {
+  height: 20rem;
+  width: 100%;
+  padding: 1.5rem 0;
+}
+
+.wrapper-icons-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.box-icons-footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon-footer {
+  margin-bottom: 1.5rem;
+}
+
+.box-text {
+  font-size: 1.4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .box-icons-footer {
+    width: 10rem;
+  }
+  .icon-footer {
+    width: 5rem;
+  }
+}

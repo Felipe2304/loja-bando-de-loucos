@@ -1,0 +1,28 @@
+.wrapper-icons-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 12rem;
+}
+
+.icon-ball {
+  height: 5rem;
+  width: 5rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.icon-ball:active {
+  transform: scale(0.94);
+  transition: 200ms;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper-icons-header {
+    order: 1;
+  }
+}
