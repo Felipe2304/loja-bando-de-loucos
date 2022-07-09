@@ -6,6 +6,11 @@ import { dataProducts } from "../../dataProducts/index.js";
 importCSS("./src/components/ContainerProducts/containerProducts.css");
 
 export const ContainerProducts = () => {
+  const $productsTitleFiltered = createElement({
+    tagName: "div",
+    className: ["products-title-filtered"],
+  });
+
   const $listProducts = createElement({
     tagName: "ul",
     className: ["list-products"],
@@ -17,7 +22,7 @@ export const ContainerProducts = () => {
   const $containerProducts = createElement({
     tagName: "section",
     className: ["container-products"],
-    children: [$listProducts],
+    children: [$productsTitleFiltered, $listProducts],
   });
 
   return $containerProducts;

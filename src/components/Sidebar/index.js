@@ -87,12 +87,17 @@ const getTypeProducts = (listTypeFilter) => {
 };
 
 const filterProducts = (type) => {
+  const $productsTitleFiltered = document.querySelector(
+    ".products-title-filtered"
+  );
+
   const $ul = document.querySelector(".list-products");
   const products = dataProducts().products.filter((item) => {
     if (type === "Frete grátis") return item.freteFree;
     if (type === "Mais vendidos") return item.bestSellers;
     return item.modelType === type;
   });
+  $productsTitleFiltered.textContent = type;
 
   printProducts($ul, products);
 };
