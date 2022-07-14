@@ -1,0 +1,30 @@
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo-header {
+  width: 8rem;
+  margin-right: 1.5rem;
+}
+
+.header-title {
+  font-size: 3rem;
+  color: white;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-title {
+    display: flex;
+    align-items: center;
+    order: 0;
+  }
+  .logo-header {
+    width: 5.5rem;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+  }
+}

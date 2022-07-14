@@ -1,5 +1,9 @@
 import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
+import { removeHome } from "../../home/index.js";
+import { printContainerCart } from "../ContainerCart/index.js";
+import { printHeaderCart } from "../HeaderCart/index.js";
+import { removeHeaderHome } from "../Header/index.js";
 
 importCSS("./src/components/WrapperIconsHeader/wrapperIconsHeader.css");
 
@@ -13,6 +17,12 @@ export const WrapperIconsHeader = () => {
     tagName: "div",
     className: ["icon-ball", "icon-ball-cart"],
     children: [$shoppingCartIcon],
+    onclick: () => {
+      removeHeaderHome();
+      removeHome();
+      printHeaderCart();
+      printContainerCart();
+    },
   });
 
   const $filterIcon = createElement({
@@ -25,14 +35,11 @@ export const WrapperIconsHeader = () => {
     tagName: "div",
     className: ["icon-ball", "icon-ball-filter"],
     children: [$filterIcon],
+    onclick: () => {
+      const $sideBar = document.querySelector(".side-bar");
+      $sideBar.classList.toggle("side-bar-open");
+    },
   });
-
-  const openSidebar = () => {
-    const $sideBar = document.querySelector(".side-bar");
-    $sideBar.classList.toggle("side-bar-open");
-  };
-
-  $iconBallFilter.addEventListener("click", openSidebar);
 
   const $wrapperIconsHeader = createElement({
     tagName: "div",

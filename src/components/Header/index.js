@@ -2,26 +2,11 @@ import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
 import { SearchBar } from "../searchBar/index.js";
 import { WrapperIconsHeader } from "../WrapperIconsHeader/index.js";
+import { LogoTitle } from "../shared/LogoTitle/index.js";
 importCSS("./src/components/Header/header.css");
 
 export const Header = () => {
-  const $logo = createElement({
-    tagName: "img",
-    className: ["logo-header"],
-    setAttribute: ["src", "./src/assets/logo.png"],
-  });
-
-  const $title = createElement({
-    tagName: "h1",
-    className: ["header-title"],
-    textContent: "Bando de loucos",
-  });
-
-  const $logoTitle = createElement({
-    tagName: "div",
-    className: ["logo-title"],
-    children: [$logo, $title],
-  });
+  const $logoTitle = LogoTitle();
   const $searchBar = SearchBar();
   const $wrapperIconsHeader = WrapperIconsHeader();
 
@@ -32,4 +17,17 @@ export const Header = () => {
   });
 
   return $header;
+};
+
+export const removeHeaderHome = () => {
+  const $headerHome = document.querySelector(".header-home");
+
+  $headerHome.remove();
+};
+
+export const printHeaderHome = () => {
+  const $root = document.querySelector("#root");
+  const $headerHome = Header();
+
+  $root.appendChild($headerHome);
 };

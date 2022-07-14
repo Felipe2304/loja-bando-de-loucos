@@ -1,15 +1,17 @@
 .side-bar {
   position: fixed;
   right: 0;
-  height: 100vh;
+  height: 100%;
   width: 25%;
   background-color: rgb(247, 240, 240);
   transform: translateX(100%);
   transition: 500ms;
+  opacity: 0;
 }
 
 .side-bar-open {
   transform: translateX(0);
+  opacity: 1;
 }
 
 .side-bar-box-title {

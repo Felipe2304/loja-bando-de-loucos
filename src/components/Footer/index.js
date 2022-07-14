@@ -12,7 +12,7 @@ export const Footer = () => {
 
   const $boxIconCard = BoxIconsFooter({
     src: "./src/assets/cartao-de-credito.png",
-    infoText: "Parcelamos em até 24X sem jurus no cartão de crédito",
+    infoText: "Parcelamos em até 24X sem juros no cartão de crédito",
   });
 
   const $boxIconTime = BoxIconsFooter({

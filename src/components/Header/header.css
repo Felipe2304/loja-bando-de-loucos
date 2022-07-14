@@ -7,8 +7,6 @@
   padding: 2rem;
   padding-top: 1rem;
   background-color: black;
-  position: fixed;
-  top: 0;
 }
 
 .wrapper-header {
@@ -46,18 +44,5 @@
   .wrapper-header {
     height: 100%;
     flex-wrap: wrap;
-  }
-
-  .logo-title {
-    display: flex;
-    align-items: center;
-    order: 0;
-  }
-  .logo-header {
-    width: 5.5rem;
-  }
-
-  .header-title {
-    font-size: 1.8rem;
   }
 }

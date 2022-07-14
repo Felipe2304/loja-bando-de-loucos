@@ -22,5 +22,7 @@ export const createElement = (props) => {
 
   if (props.setAttribute) setAttribute($element, props.setAttribute);
 
+  if (props.onclick) $element.addEventListener("click", props.onclick);
+
   return $element;
 };

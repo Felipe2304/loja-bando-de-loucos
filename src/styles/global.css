@@ -6,6 +6,11 @@ body {
   width: 100vw;
 }
 
+.body-cart {
+  height: calc(100vh - 10rem);
+  background-color: #dedede;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,5 +20,9 @@ body {
 
 #root {
   width: 100%;
-  padding-top: 10rem;
+}
+
+#root-cart {
+  width: 100%;
+  height: 100%;
 }

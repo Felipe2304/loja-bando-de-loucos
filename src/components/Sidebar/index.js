@@ -46,6 +46,10 @@ export const SideBar = () => {
     src: "./src/assets/seta-esquerda.png",
     filterType: "Mais vendidos",
   });
+  const $productsAll = SideBarItem({
+    src: "./src/assets/seta-esquerda.png",
+    filterType: "Todos os produtos",
+  });
 
   getTypeProducts([
     $sideBarFilterItemMasc,
@@ -54,6 +58,7 @@ export const SideBar = () => {
     $sideBarFilterItemPet,
     $sideBarFilterItemFreteFree,
     $sideBarFilterItemBestSellers,
+    $productsAll,
   ]);
 
   const $sideBarFilterList = createElement({
@@ -66,6 +71,7 @@ export const SideBar = () => {
       $sideBarFilterItemPet,
       $sideBarFilterItemFreteFree,
       $sideBarFilterItemBestSellers,
+      $productsAll,
     ],
   });
 
@@ -87,17 +93,13 @@ const getTypeProducts = (listTypeFilter) => {
 };
 
 const filterProducts = (type) => {
-  const $productsTitleFiltered = document.querySelector(
-    ".products-title-filtered"
-  );
-
   const $ul = document.querySelector(".list-products");
   const products = dataProducts().products.filter((item) => {
     if (type === "Frete grátis") return item.freteFree;
     if (type === "Mais vendidos") return item.bestSellers;
+    if (type === "Todos os produtos") return item;
     return item.modelType === type;
   });
-  $productsTitleFiltered.textContent = type;
 
   printProducts($ul, products);
 };

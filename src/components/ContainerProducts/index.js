@@ -2,7 +2,8 @@ import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
 import { ProductCard } from "../ProductCard/index.js";
 import { dataProducts } from "../../dataProducts/index.js";
-
+import { crudCart } from "../../crudCart/index.js";
+import { CardItemCart } from "../CardItemCart/index.js";
 importCSS("./src/components/ContainerProducts/containerProducts.css");
 
 export const ContainerProducts = () => {
@@ -30,8 +31,17 @@ export const ContainerProducts = () => {
 
 export const printProducts = ($listProducts, products) => {
   $listProducts.innerHTML = "";
-  products.forEach((itens) => {
-    const products = ProductCard(itens);
-    $listProducts.appendChild(products);
+  products.forEach((infoProducts) => {
+    const $products = ProductCard(infoProducts);
+    $listProducts.appendChild($products);
+    getInfoProducts($products, infoProducts);
+  });
+};
+
+const getInfoProducts = ($products, infoProducts) => {
+  $products.addEventListener("click", () => {
+    const crud = crudCart();
+    crud.create(infoProducts);
+    crud.read();
   });
 };
