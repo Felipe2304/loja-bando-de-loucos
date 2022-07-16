@@ -146,6 +146,12 @@
   text-decoration: underline;
 }
 
+@media screen and (max-width: 1440px) {
+  .container-cart {
+    height: calc(100vh - 10rem);
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .buy-content {
     width: 60%;

@@ -5,6 +5,11 @@
   width: 12rem;
 }
 
+.info-quantity-itens-cart {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
 .icon-ball {
   height: 5rem;
   width: 5rem;

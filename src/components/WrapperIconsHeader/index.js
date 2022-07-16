@@ -13,10 +13,16 @@ export const WrapperIconsHeader = () => {
     className: ["icon-header", "shopping-cart"],
     setAttribute: ["src", "./src/assets/carrinho-carrinho.png"],
   });
+
+  const $infoQuantityItensCart = createElement({
+    tagName: "div",
+    className: ["info-quantity-itens-cart"],
+    textContent: "0",
+  });
   const $iconBallCart = createElement({
     tagName: "div",
     className: ["icon-ball", "icon-ball-cart"],
-    children: [$shoppingCartIcon],
+    children: [$shoppingCartIcon, $infoQuantityItensCart],
     onclick: () => {
       removeHeaderHome();
       removeHome();
@@ -48,4 +54,12 @@ export const WrapperIconsHeader = () => {
   });
 
   return $wrapperIconsHeader;
+};
+
+export const getQuantityOfItens = (quantity) => {
+  const $infoQuantityItensCart = document.querySelector(
+    ".info-quantity-itens-cart"
+  );
+
+  $infoQuantityItensCart.textContent = quantity;
 };

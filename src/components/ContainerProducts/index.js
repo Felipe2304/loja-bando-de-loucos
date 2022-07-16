@@ -3,7 +3,8 @@ import { importCSS } from "../../utils/importCSS/index.js";
 import { ProductCard } from "../ProductCard/index.js";
 import { dataProducts } from "../../dataProducts/index.js";
 import { crudCart } from "../../crudCart/index.js";
-import { CardItemCart } from "../CardItemCart/index.js";
+import { printToast } from "../Toast/index.js";
+import { getQuantityOfItens } from "../WrapperIconsHeader/index.js";
 importCSS("./src/components/ContainerProducts/containerProducts.css");
 
 export const ContainerProducts = () => {
@@ -43,5 +44,8 @@ const getInfoProducts = ($products, infoProducts) => {
     const crud = crudCart();
     crud.create(infoProducts);
     crud.read();
+
+    getQuantityOfItens(crud.read().length);
+    printToast();
   });
 };
