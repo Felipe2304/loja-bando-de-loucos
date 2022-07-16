@@ -26,14 +26,16 @@
 }
 
 @media screen and (max-width: 768px) {
-  #root {
-    padding-top: 12rem;
-  }
   .box-icons-footer {
-    width: 10rem;
+    width: 20%;
+    text-align: center;
   }
   .icon-footer {
-    width: 5rem;
+    width: 7rem;
+  }
+
+  .box-text {
+    font-size: 1.6rem;
   }
 }
 @media screen and (max-width: 428px) {

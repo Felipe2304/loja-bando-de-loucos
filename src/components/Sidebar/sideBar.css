@@ -36,9 +36,21 @@
   width: 100%;
 }
 
+@media screen and (min-width: 1024px) {
+  .side-bar {
+    width: 30%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .side-bar {
-    width: 70%;
+    width: 45%;
     top: 16rem;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .side-bar {
+    width: 75%;
   }
 }

@@ -2,9 +2,8 @@
   width: 100%;
   padding: 2rem;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #dedede;
 }
 .info-wrapper-products-cart {
@@ -145,6 +144,12 @@
 
 .link-consumer:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px) {
+  .buy-content {
+    width: 60%;
+  }
 }
 
 @media screen and (max-width: 768px) {

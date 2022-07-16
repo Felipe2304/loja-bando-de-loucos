@@ -23,3 +23,9 @@
   font-weight: 700;
   margin-bottom: 3rem;
 }
+
+@media screen and (max-width: 768px) {
+  .container-products {
+    padding-top: 8rem;
+  }
+}
