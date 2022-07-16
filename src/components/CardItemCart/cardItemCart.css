@@ -60,3 +60,10 @@
   font-size: 1.6rem;
   font-weight: 600;
 }
+
+@media screen and (max-width: 768px) {
+  .card-item-cart {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
