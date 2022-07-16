@@ -84,10 +84,117 @@ const BuyContent = () => {
     className: ["buy-title"],
     textContent: "Resumo do pedido",
   });
+
+  const $subTotalOfProductsText = createElement({
+    tagName: "span",
+    className: ["sub-total-of-products-text", "text-buy"],
+    textContent: "Subtotal de produtos",
+  });
+
+  const $subTotalOfProductsPrice = createElement({
+    tagName: "strong",
+    className: ["sub-total-of-products-price", "text-buy"],
+    textContent: `R$ ${"160,00"}`,
+  });
+
+  const $subTotalOfProducts = createElement({
+    tagName: "div",
+    className: ["sub-total-of-products", "space-elements"],
+    children: [$subTotalOfProductsText, $subTotalOfProductsPrice],
+  });
+
+  const $deliveryFeeText = createElement({
+    tagName: "span",
+    className: ["delivery-fee-text", "text-buy"],
+    textContent: "Entrega",
+  });
+  const $deliveryFeePrice = createElement({
+    tagName: "span",
+    className: ["delivery-fee-price", "text-buy"],
+    textContent: `${"R$ 40,00"}`,
+  });
+
+  const $deliveryFee = createElement({
+    tagName: "div",
+    className: ["delivery-fee", "space-elements"],
+    children: [$deliveryFeeText, $deliveryFeePrice],
+  });
+
+  const $division = createElement({
+    tagName: "div",
+    className: ["division"],
+  });
+
+  const $boxTotalText = createElement({
+    tagName: "span",
+    className: ["box-total-text"],
+    textContent: "Total",
+  });
+
+  const $boxTotalPrice = createElement({
+    tagName: "span",
+    className: ["box-total-price"],
+    textContent: `R$ ${"200,00"}`,
+  });
+
+  const $boxTotal = createElement({
+    tagName: "div",
+    className: ["box-total", "space-elements"],
+    children: [$boxTotalText, $boxTotalPrice],
+  });
+
+  const $buttonBuy = createElement({
+    tagName: "button",
+    className: ["button-buy"],
+    textContent: "Finalizar a compra",
+  });
+
+  const $buyContentWrapper = createElement({
+    tagName: "div",
+    className: ["buy-content-wrapper"],
+    children: [
+      $title,
+      $subTotalOfProducts,
+      $deliveryFee,
+      $division,
+      $boxTotal,
+      $buttonBuy,
+    ],
+  });
+
+  const $consumeAttentionItemHelp = PrintConsumeAttentionItemList({
+    consumerText: "Ajuda",
+  });
+  const $consumeAttentionItemRefunds = PrintConsumeAttentionItemList({
+    consumerText: "Reembolsos",
+  });
+  const $consumeAttentionItemDeliveryAndFrete = PrintConsumeAttentionItemList({
+    consumerText: "Entregas e fretes",
+  });
+  const $consumeAttentionItemSwapAndDevolution = PrintConsumeAttentionItemList({
+    consumerText: "Trocas e devoluções",
+  });
+
+  const $consumeAttentionList = createElement({
+    tagName: "ul",
+    className: ["consume-attention-list"],
+    children: [
+      $consumeAttentionItemHelp,
+      $consumeAttentionItemRefunds,
+      $consumeAttentionItemDeliveryAndFrete,
+      $consumeAttentionItemSwapAndDevolution,
+    ],
+  });
+
+  const $consumeAttention = createElement({
+    tagName: "nav",
+    className: ["consume-attention"],
+    children: [$consumeAttentionList],
+  });
   const $buyContent = createElement({
     tagName: "div",
     className: ["buy-content"],
-    children: [$title],
+    children: [$buyContentWrapper, $consumeAttention],
   });
 
   return $buyContent;
@@ -104,6 +211,22 @@ export const ContainerCart = () => {
   });
 
   return $containerCart;
+};
+
+const PrintConsumeAttentionItemList = (text) => {
+  const $linkConsumer = createElement({
+    tagName: "a",
+    className: ["link-consumer"],
+    textContent: text.consumerText,
+    setAttribute: ["href", "#"],
+  });
+  const $consumeAttentionItem = createElement({
+    tagName: "li",
+    className: ["consume-attention-item"],
+    children: [$linkConsumer],
+  });
+
+  return $consumeAttentionItem;
 };
 
 export const printContainerCart = () => {

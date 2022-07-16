@@ -7,6 +7,7 @@
   transform: translateX(100%);
   transition: 500ms;
   opacity: 0;
+  overflow-y: auto;
 }
 
 .side-bar-open {
@@ -38,5 +39,6 @@
 @media screen and (max-width: 768px) {
   .side-bar {
     width: 70%;
+    top: 16rem;
   }
 }

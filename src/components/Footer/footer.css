@@ -1,7 +1,7 @@
 .footer-container {
-  height: 20rem;
   width: 100%;
   padding: 1.5rem 0;
+  padding-bottom: 5rem;
 }
 
 .wrapper-icons-footer {
@@ -26,10 +26,31 @@
 }
 
 @media screen and (max-width: 768px) {
+  #root {
+    padding-top: 12rem;
+  }
   .box-icons-footer {
     width: 10rem;
   }
   .icon-footer {
     width: 5rem;
+  }
+}
+@media screen and (max-width: 428px) {
+  .wrapper-icons-footer {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .box-icons-footer {
+    width: 50%;
+    margin-bottom: 5rem;
+  }
+
+  .icon-footer {
+    width: 8rem;
+  }
+
+  .box-text {
+    font-size: 1.8rem;
   }
 }

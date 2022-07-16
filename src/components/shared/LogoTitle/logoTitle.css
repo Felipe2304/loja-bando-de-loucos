@@ -16,8 +16,6 @@
 
 @media screen and (max-width: 768px) {
   .logo-title {
-    display: flex;
-    align-items: center;
     order: 0;
   }
   .logo-header {
@@ -25,6 +23,16 @@
   }
 
   .header-title {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .logo-header {
+    width: 4.5rem;
+  }
+
+  .header-title {
+    font-size: 2rem;
   }
 }
