@@ -25,9 +25,8 @@ export const removeHome = () => {
   $home.remove();
 };
 
-export const printHome = () => {
+export const printHome = ($root) => {
   const $home = Home();
-  const $root = document.querySelector("#root");
 
   $root.appendChild($home);
 };

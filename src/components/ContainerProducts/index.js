@@ -2,9 +2,10 @@ import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
 import { ProductCard } from "../ProductCard/index.js";
 import { dataProducts } from "../../dataProducts/index.js";
-import { crudCart } from "../../crudCart/index.js";
+import { dataListProducts } from "../../crudCart/index.js";
 import { printToast } from "../Toast/index.js";
 import { getQuantityOfItens } from "../WrapperIconsHeader/index.js";
+import { printCardList } from "../ContainerCart/index.js";
 importCSS("./src/components/ContainerProducts/containerProducts.css");
 
 export const ContainerProducts = () => {
@@ -41,11 +42,10 @@ export const printProducts = ($listProducts, products) => {
 
 const getInfoProducts = ($products, infoProducts) => {
   $products.addEventListener("click", () => {
-    const crud = crudCart();
-    crud.create(infoProducts);
-    crud.read();
+    dataListProducts.create(infoProducts);
 
-    getQuantityOfItens(crud.read().length);
+    getQuantityOfItens(dataListProducts.read().length);
     printToast();
+    printCardList();
   });
 };

@@ -25,8 +25,7 @@ export const removeHeaderHome = () => {
   $headerHome.remove();
 };
 
-export const printHeaderHome = () => {
-  const $root = document.querySelector("#root");
+export const printHeaderHome = ($root) => {
   const $headerHome = Header();
 
   $root.appendChild($headerHome);

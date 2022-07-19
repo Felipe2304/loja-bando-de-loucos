@@ -24,10 +24,11 @@ export const WrapperIconsHeader = () => {
     className: ["icon-ball", "icon-ball-cart"],
     children: [$shoppingCartIcon, $infoQuantityItensCart],
     onclick: () => {
+      const $root = document.querySelector("#root");
       removeHeaderHome();
       removeHome();
-      printHeaderCart();
-      printContainerCart();
+      printHeaderCart($root);
+      printContainerCart($root);
     },
   });
 
@@ -60,6 +61,5 @@ export const getQuantityOfItens = (quantity) => {
   const $infoQuantityItensCart = document.querySelector(
     ".info-quantity-itens-cart"
   );
-
   $infoQuantityItensCart.textContent = quantity;
 };

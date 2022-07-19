@@ -4,6 +4,7 @@ import { printHome } from "../../home/index.js";
 import { removeHeaderCart } from "../HeaderCart/index.js";
 import { printHeaderHome } from "../Header/index.js";
 import { CardItemCart } from "../CardItemCart/index.js";
+import { dataListProducts } from "../../crudCart/index.js";
 
 importCSS("./src/components/ContainerCart/containerCart.css");
 
@@ -25,10 +26,11 @@ const CartContent = () => {
     className: ["icon-home-wrapper"],
     children: [$iconHome, $iconHomeWrapperTitle],
     onclick: () => {
+      const $root = document.querySelector("#root");
       removeHeaderCart();
-      printHeaderHome();
+      printHeaderHome($root);
       removeContainerCart();
-      printHome();
+      printHome($root);
     },
   });
 
@@ -56,12 +58,9 @@ const CartContent = () => {
     children: [$totalProductsText, $priceText],
   });
 
-  const $cardItemCart = CardItemCart();
-
   const $listCardCart = createElement({
     tagName: "ul",
     className: ["list-card-cart"],
-    children: [$cardItemCart],
   });
 
   const $cartContent = createElement({
@@ -229,15 +228,25 @@ const PrintConsumeAttentionItemList = (text) => {
   return $consumeAttentionItem;
 };
 
-export const printContainerCart = () => {
+export const printContainerCart = ($root) => {
   const $containerCart = ContainerCart();
-  const $root = document.querySelector("#root");
 
   $root.appendChild($containerCart);
+
+  printCardList();
 };
 
 const removeContainerCart = () => {
   const $containerCart = document.querySelector(".container-cart");
 
   $containerCart.remove();
+};
+
+export const printCardList = () => {
+  const $listCard = document.querySelector(".list-card-cart");
+
+  dataListProducts.read().forEach((products) => {
+    const card = CardItemCart(products);
+    $listCard.appendChild(card);
+  });
 };

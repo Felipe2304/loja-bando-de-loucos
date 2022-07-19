@@ -1,10 +1,9 @@
 .container-cart {
   width: 100%;
-  padding: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: #dedede;
+  padding: 2rem;
 }
 .info-wrapper-products-cart {
   width: 100%;
@@ -15,7 +14,6 @@
   max-height: 62rem;
   padding: 2rem;
 }
-
 .icon-home-wrapper {
   display: flex;
   align-items: center;
@@ -53,6 +51,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-height: 100%;
+  overflow-y: hidden;
 }
 
 .buy-content {
@@ -62,7 +62,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
+  border: 1px solid black;
+  border-radius: 5px;
   padding: 2rem;
 }
 

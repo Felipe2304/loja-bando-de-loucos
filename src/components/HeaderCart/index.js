@@ -16,8 +16,7 @@ export const HeaderCart = () => {
   return $headerCart;
 };
 
-export const printHeaderCart = () => {
-  const $root = document.querySelector("#root");
+export const printHeaderCart = ($root) => {
   const $headerCart = HeaderCart();
 
   $root.appendChild($headerCart);

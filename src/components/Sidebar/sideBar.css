@@ -3,11 +3,10 @@
   right: 0;
   height: 100%;
   width: 25%;
-  background-color: rgb(247, 240, 240);
+  background-color: #dedede;
   transform: translateX(100%);
   transition: 500ms;
   opacity: 0;
-  overflow-y: auto;
 }
 
 .side-bar-open {
@@ -30,10 +29,37 @@
 
 .side-bar-Filter-list {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-height: calc(100% - 17rem);
+  overflow-y: auto;
+}
+
+.side-bar-item {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  width: 30rem;
+  min-height: 5rem;
+  height: 5rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: 300ms;
+  padding-left: 1.5rem;
+  border-radius: 0px 15px 0px 15px;
+}
+
+.side-bar-item:hover {
+  background-color: rgb(204, 204, 183);
+}
+
+.arrow-icon {
+  margin-right: 3rem;
+}
+
+.text-type {
+  font-size: 1.6rem;
 }
 
 @media screen and (min-width: 1024px) {

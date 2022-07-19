@@ -3,12 +3,7 @@ html {
 }
 
 body {
-  width: 100vw;
-}
-
-.body-cart {
-  height: calc(100vh - 10rem);
-  background-color: #dedede;
+  width: 100%;
 }
 
 * {
@@ -21,11 +16,7 @@ body {
 #root {
   width: 100%;
   padding-top: 10rem;
-}
-
-#root-cart {
-  width: 100%;
-  height: 100%;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 768px) {

@@ -3,11 +3,11 @@ import { importCSS } from "../../utils/importCSS/index.js";
 
 importCSS("./src/components/CardItemCart/cardItemCart.css");
 
-export const CardItemCart = () => {
+export const CardItemCart = (products) => {
   const $productImg = createElement({
     tagName: "img",
     className: ["product-img"],
-    setAttribute: ["src", "./src/assets/products/bermuda1.jpg"],
+    setAttribute: ["src", products.photo],
   });
 
   const $boxProductImg = createElement({
@@ -19,13 +19,16 @@ export const CardItemCart = () => {
   const $descriptionProductCard = createElement({
     tagName: "h4",
     className: ["description-product-card"],
-    textContent: "teste",
+    textContent: `${products.description}`,
   });
 
   const $trashButton = createElement({
     tagName: "img",
     className: ["trash-button"],
     setAttribute: ["src", "./src/assets/trash.png"],
+    onclick: () => {
+      console.log("excluir card");
+    },
   });
 
   const $wrapperTopCard = createElement({
@@ -44,7 +47,7 @@ export const CardItemCart = () => {
   const $priceTextProduct = createElement({
     tagName: "strong",
     className: ["price-text-products"],
-    textContent: `R$ ${10}`,
+    textContent: `R$ ${products.price}`,
   });
 
   const $wrapperBottomCard = createElement({
