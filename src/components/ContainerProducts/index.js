@@ -5,7 +5,11 @@ import { dataProducts } from "../../dataProducts/index.js";
 import { dataListProducts } from "../../crudCart/index.js";
 import { printToast } from "../Toast/index.js";
 import { getQuantityOfItens } from "../WrapperIconsHeader/index.js";
-import { printCardList } from "../ContainerCart/index.js";
+import {
+  printCardList,
+  getTotalProducts,
+  subTotalProducts,
+} from "../ContainerCart/index.js";
 importCSS("./src/components/ContainerProducts/containerProducts.css");
 
 export const ContainerProducts = () => {
@@ -43,9 +47,11 @@ export const printProducts = ($listProducts, products) => {
 const getInfoProducts = ($products, infoProducts) => {
   $products.addEventListener("click", () => {
     dataListProducts.create(infoProducts);
-
-    getQuantityOfItens(dataListProducts.read().length);
+    const readLength = dataListProducts.read().length;
+    getQuantityOfItens(readLength);
     printToast();
+    getTotalProducts();
+    subTotalProducts();
     printCardList();
   });
 };

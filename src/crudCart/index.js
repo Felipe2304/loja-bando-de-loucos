@@ -8,6 +8,7 @@ export const dataListProducts = {
       photo: infoProducts.photo,
       description: infoProducts.description,
       price: infoProducts.price,
+      quantity: 1,
     });
 
     return listProductsCart;
@@ -17,7 +18,28 @@ export const dataListProducts = {
     return [...listProductsCart];
   },
 
-  delete: () => {
-    console.log(listProductsCart);
+  upload: (index, quantityValue) => {
+    const updatedList = listProductsCart.map((infoProducts, position) => {
+      if (index === position) {
+        return {
+          photo: infoProducts.photo,
+          description: infoProducts.description,
+          price: infoProducts.price,
+          quantity: quantityValue,
+        };
+      }
+
+      return infoProducts;
+    });
+
+    listProductsCart = updatedList;
+  },
+
+  delete: (index) => {
+    const newList = listProductsCart.filter((_item, position) => {
+      return index !== position;
+    });
+
+    listProductsCart = newList;
   },
 };

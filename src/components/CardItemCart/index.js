@@ -1,9 +1,17 @@
+import { dataListProducts } from "../../crudCart/index.js";
 import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
 
+import {
+  ShowMessageNotProducts,
+  printCardList,
+  getTotalProducts,
+  subTotalProducts,
+} from "../ContainerCart/index.js";
+
 importCSS("./src/components/CardItemCart/cardItemCart.css");
 
-export const CardItemCart = (products) => {
+export const CardItemCart = (products, index) => {
   const $productImg = createElement({
     tagName: "img",
     className: ["product-img"],
@@ -27,7 +35,12 @@ export const CardItemCart = (products) => {
     className: ["trash-button"],
     setAttribute: ["src", "./src/assets/trash.png"],
     onclick: () => {
-      console.log("excluir card");
+      dataListProducts.delete(index);
+
+      printCardList();
+      ShowMessageNotProducts();
+      getTotalProducts();
+      subTotalProducts();
     },
   });
 
@@ -42,6 +55,17 @@ export const CardItemCart = (products) => {
     className: ["select-quantity"],
   });
 
+  const $quantitySelect = createElement({
+    tagName: "span",
+    classList: ["quantity-select"],
+    textContent: "QTD: 1",
+  });
+
+  $selectQuantity.addEventListener("change", () => {
+    dataListProducts.upload(index, $selectQuantity);
+    $quantitySelect.textContent = `QTD: ${$selectQuantity.value}`;
+  });
+
   addQuantityProducts($selectQuantity);
 
   const $priceTextProduct = createElement({
@@ -53,7 +77,7 @@ export const CardItemCart = (products) => {
   const $wrapperBottomCard = createElement({
     tagName: "div",
     className: ["wrapper-bottom-card"],
-    children: [$selectQuantity, $priceTextProduct],
+    children: [$selectQuantity, $quantitySelect, $priceTextProduct],
   });
 
   const $boxInfoCard = createElement({

@@ -36,6 +36,15 @@
   overflow-y: auto;
 }
 
+.side-bar-Filter-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.side-bar-Filter-list::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
 .side-bar-item {
   display: flex;
   align-items: center;

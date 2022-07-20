@@ -43,9 +43,8 @@ const CartContent = () => {
   const $totalProductsText = createElement({
     tagName: "span",
     className: ["total-products-text"],
-    textContent: `Total(3 produtos)`,
+    textContent: `Total(${getTotalProducts()} produtos)`,
   });
-
   const $priceText = createElement({
     tagName: "strong",
     className: ["price-text"],
@@ -73,6 +72,9 @@ const CartContent = () => {
       $listCardCart,
     ],
   });
+
+  if (dataListProducts.read().length === 0)
+    $cartContent.appendChild(NotProducts());
 
   return $cartContent;
 };
@@ -202,7 +204,6 @@ const BuyContent = () => {
 export const ContainerCart = () => {
   const $cartContent = CartContent();
   const $buyContent = BuyContent();
-
   const $containerCart = createElement({
     tagName: "section",
     className: ["container-cart"],
@@ -228,6 +229,49 @@ const PrintConsumeAttentionItemList = (text) => {
   return $consumeAttentionItem;
 };
 
+export const ShowMessageNotProducts = () => {
+  const $cartContent = document.querySelector(".cart-content");
+  const $notProductsBox = NotProducts();
+  if (dataListProducts.read().length === 0) {
+    $cartContent.appendChild($notProductsBox);
+  } else {
+    $notProductsBox.remove();
+  }
+};
+
+const NotProducts = () => {
+  const $iconCart = createElement({
+    tagName: "img",
+    className: ["icon-cart-not"],
+    setAttribute: ["src", "./src/assets/carrinho-vazio.png"],
+  });
+
+  const $notText = createElement({
+    tagName: "p",
+    className: ["not-text"],
+    textContent: "Não há nenhum produto na lista de compras atualmente",
+  });
+  const $NotBox = createElement({
+    tagName: "div",
+    className: ["not-product-box"],
+    children: [$iconCart, $notText],
+  });
+
+  return $NotBox;
+};
+
+export const subTotalProducts = () => {
+  const list = dataListProducts.read();
+
+  const priceTotal = list.reduce((acc, itens) => {
+    return (acc += itens.price);
+  }, 0);
+};
+
+export const getTotalProducts = () => {
+  return dataListProducts.read().length;
+};
+
 export const printContainerCart = ($root) => {
   const $containerCart = ContainerCart();
 
@@ -245,8 +289,9 @@ const removeContainerCart = () => {
 export const printCardList = () => {
   const $listCard = document.querySelector(".list-card-cart");
 
-  dataListProducts.read().forEach((products) => {
-    const card = CardItemCart(products);
+  $listCard.innerHTML = "";
+  dataListProducts.read().forEach((products, index) => {
+    const card = CardItemCart(products, index);
     $listCard.appendChild(card);
   });
 };
