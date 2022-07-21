@@ -3,6 +3,7 @@ import { importCSS } from "../utils/importCSS/index.js";
 import { Footer } from "../components/Footer/index.js";
 import { ContainerProducts } from "../components/ContainerProducts/index.js";
 import { SideBar } from "../components/Sidebar/index.js";
+import { getQuantityOfItens } from "../components/WrapperIconsHeader/index.js";
 
 importCSS("./src/home/home.css");
 
@@ -29,4 +30,5 @@ export const printHome = ($root) => {
   const $home = Home();
 
   $root.appendChild($home);
+  getQuantityOfItens();
 };

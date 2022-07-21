@@ -47,8 +47,7 @@ export const printProducts = ($listProducts, products) => {
 const getInfoProducts = ($products, infoProducts) => {
   $products.addEventListener("click", () => {
     dataListProducts.create(infoProducts);
-    const readLength = dataListProducts.read().length;
-    getQuantityOfItens(readLength);
+    getQuantityOfItens();
     printToast();
     printCardList();
     getTotalProducts();

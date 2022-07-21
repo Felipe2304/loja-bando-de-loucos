@@ -1,6 +1,7 @@
 import { dataListProducts } from "../../crudCart/index.js";
 import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
+import { getQuantityOfItens } from "../WrapperIconsHeader/index.js";
 
 import {
   ShowMessageNotProducts,
@@ -36,7 +37,7 @@ export const CardItemCart = (products, index) => {
     setAttribute: ["src", "./src/assets/trash.png"],
     onclick: () => {
       dataListProducts.delete(index);
-
+      getQuantityOfItens();
       printCardList();
       ShowMessageNotProducts();
       getTotalProducts();

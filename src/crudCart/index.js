@@ -1,5 +1,3 @@
-import { printCardList } from "../components/ContainerCart/index.js";
-
 let listProductsCart = [];
 
 export const dataListProducts = {

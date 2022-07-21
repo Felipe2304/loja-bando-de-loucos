@@ -7,6 +7,7 @@ import {
 } from "../ContainerCart/index.js";
 import { printHeaderCart } from "../HeaderCart/index.js";
 import { removeHeaderHome } from "../Header/index.js";
+import { dataListProducts } from "../../crudCart/index.js";
 
 importCSS("./src/components/WrapperIconsHeader/wrapperIconsHeader.css");
 
@@ -61,9 +62,10 @@ export const WrapperIconsHeader = () => {
   return $wrapperIconsHeader;
 };
 
-export const getQuantityOfItens = (quantity) => {
+export const getQuantityOfItens = () => {
+  const totalItensProducts = dataListProducts.read().length;
   const $infoQuantityItensCart = document.querySelector(
     ".info-quantity-itens-cart"
   );
-  $infoQuantityItensCart.textContent = quantity;
+  $infoQuantityItensCart.textContent = totalItensProducts;
 };

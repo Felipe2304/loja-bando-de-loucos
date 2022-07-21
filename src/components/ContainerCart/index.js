@@ -44,7 +44,7 @@ const CartContent = () => {
   const $totalProductsText = createElement({
     tagName: "span",
     className: ["total-products-text"],
-    textContent: `Total(${getTotalProducts()} produtos)`,
+    textContent: `Total(0 produtos)`,
   });
   const $priceText = createElement({
     tagName: "strong",
@@ -301,7 +301,9 @@ const calcFrete = (totalPrice) => {
 };
 
 export const getTotalProducts = () => {
-  return dataListProducts.read().length;
+  const totalItensProducts = dataListProducts.read().length;
+  const $totalProductsText = document.querySelector(".total-products-text");
+  $totalProductsText.textContent = `Total(${totalItensProducts} produtos)`;
 };
 
 export const printContainerCart = ($root) => {
@@ -310,6 +312,7 @@ export const printContainerCart = ($root) => {
   $root.appendChild($containerCart);
 
   printCardList();
+  getTotalProducts();
 };
 
 export const removeContainerCart = () => {
