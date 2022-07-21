@@ -5,6 +5,7 @@ import { removeHeaderCart } from "../HeaderCart/index.js";
 import { printHeaderHome } from "../Header/index.js";
 import { CardItemCart } from "../CardItemCart/index.js";
 import { dataListProducts } from "../../crudCart/index.js";
+import { Modal } from "../Modal/index.js";
 
 importCSS("./src/components/ContainerCart/containerCart.css");
 
@@ -147,6 +148,12 @@ const BuyContent = () => {
     tagName: "button",
     className: ["button-buy"],
     textContent: "Finalizar a compra",
+    onclick: () => {
+      const $root = document.querySelector("#root");
+      const $modal = Modal();
+
+      $root.appendChild($modal);
+    },
   });
 
   const $buyContentWrapper = createElement({
@@ -305,7 +312,7 @@ export const printContainerCart = ($root) => {
   printCardList();
 };
 
-const removeContainerCart = () => {
+export const removeContainerCart = () => {
   const $containerCart = document.querySelector(".container-cart");
 
   $containerCart.remove();

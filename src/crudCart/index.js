@@ -42,4 +42,10 @@ export const dataListProducts = {
 
     listProductsCart = newList;
   },
+
+  clearList: () => {
+    listProductsCart = [];
+
+    console.log(listProductsCart);
+  },
 };

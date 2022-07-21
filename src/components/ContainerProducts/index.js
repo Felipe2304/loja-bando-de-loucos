@@ -50,8 +50,8 @@ const getInfoProducts = ($products, infoProducts) => {
     const readLength = dataListProducts.read().length;
     getQuantityOfItens(readLength);
     printToast();
+    printCardList();
     getTotalProducts();
     subTotalProducts();
-    printCardList();
   });
 };
