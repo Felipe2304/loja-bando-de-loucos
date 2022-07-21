@@ -48,7 +48,7 @@ const CartContent = () => {
   const $priceText = createElement({
     tagName: "strong",
     className: ["price-text"],
-    textContent: `R$ 160,00`,
+    textContent: `R$ 0`,
   });
 
   const $totalProducts = createElement({
@@ -95,7 +95,6 @@ const BuyContent = () => {
   const $subTotalOfProductsPrice = createElement({
     tagName: "strong",
     className: ["sub-total-of-products-price", "text-buy"],
-    textContent: `R$ ${"160,00"}`,
   });
 
   const $subTotalOfProducts = createElement({
@@ -112,7 +111,7 @@ const BuyContent = () => {
   const $deliveryFeePrice = createElement({
     tagName: "span",
     className: ["delivery-fee-price", "text-buy"],
-    textContent: `${"R$ 40,00"}`,
+    textContent: "R$ 0",
   });
 
   const $deliveryFee = createElement({
@@ -135,7 +134,7 @@ const BuyContent = () => {
   const $boxTotalPrice = createElement({
     tagName: "span",
     className: ["box-total-price"],
-    textContent: `R$ ${"200,00"}`,
+    textContent: "R$ 0",
   });
 
   const $boxTotal = createElement({
@@ -263,9 +262,35 @@ const NotProducts = () => {
 export const subTotalProducts = () => {
   const list = dataListProducts.read();
 
-  const priceTotal = list.reduce((acc, itens) => {
-    return (acc += itens.price);
+  const totalPrice = list.reduce((acc, itens) => {
+    return (acc += itens.price * Number(itens.quantity));
   }, 0);
+
+  const $subTotalOfProducts = document.querySelector(
+    ".sub-total-of-products-price"
+  );
+  $subTotalOfProducts.textContent = `R$ ${totalPrice.toFixed(2)}`;
+
+  const $priceText = document.querySelector(".price-text");
+  $priceText.textContent = `R$ ${totalPrice.toFixed(2)}`;
+  calcFrete(totalPrice);
+};
+
+const calcFrete = (totalPrice) => {
+  const $deliveryFeePrice = document.querySelector(".delivery-fee-price");
+  const $totalPrice = document.querySelector(".box-total-price");
+
+  let taxa = (totalPrice * 15) / 100;
+
+  if (totalPrice < 100) {
+    const totalValue = taxa + totalPrice;
+    $deliveryFeePrice.textContent = `R$ ${taxa.toFixed(2)}`;
+    $totalPrice.textContent = `R$ ${totalValue.toFixed(2)}`;
+  } else if (totalPrice > 100) {
+    taxa = 0;
+    $deliveryFeePrice.textContent = `R$ ${taxa.toFixed(2)}`;
+    $totalPrice.textContent = `R$ ${totalPrice.toFixed(2)}`;
+  }
 };
 
 export const getTotalProducts = () => {

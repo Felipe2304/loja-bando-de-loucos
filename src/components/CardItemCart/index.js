@@ -57,13 +57,14 @@ export const CardItemCart = (products, index) => {
 
   const $quantitySelect = createElement({
     tagName: "span",
-    classList: ["quantity-select"],
+    className: ["quantity-select"],
     textContent: "QTD: 1",
   });
 
   $selectQuantity.addEventListener("change", () => {
-    dataListProducts.upload(index, $selectQuantity);
+    dataListProducts.upload(index, $selectQuantity.value);
     $quantitySelect.textContent = `QTD: ${$selectQuantity.value}`;
+    subTotalProducts();
   });
 
   addQuantityProducts($selectQuantity);

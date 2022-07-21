@@ -61,6 +61,10 @@
   font-weight: 600;
 }
 
+.quantity-select {
+  font-size: 1.6rem;
+}
+
 @media screen and (max-width: 768px) {
   .card-item-cart {
     width: 100%;

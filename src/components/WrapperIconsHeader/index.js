@@ -1,7 +1,10 @@
 import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
 import { removeHome } from "../../home/index.js";
-import { printContainerCart } from "../ContainerCart/index.js";
+import {
+  printContainerCart,
+  subTotalProducts,
+} from "../ContainerCart/index.js";
 import { printHeaderCart } from "../HeaderCart/index.js";
 import { removeHeaderHome } from "../Header/index.js";
 
@@ -29,6 +32,7 @@ export const WrapperIconsHeader = () => {
       removeHome();
       printHeaderCart($root);
       printContainerCart($root);
+      subTotalProducts();
     },
   });
 
