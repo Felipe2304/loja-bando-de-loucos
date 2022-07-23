@@ -79,7 +79,7 @@ export const CardItemCart = (products, index) => {
     onclick: () => {
       quantitySelect += 1;
       dataListProducts.upload(index, quantitySelect);
-      printQuantitySelected(quantitySelect);
+      printQuantitySelected();
       subTotalProducts();
       $infoSelectedText.textContent = quantitySelect;
     },
@@ -91,12 +91,6 @@ export const CardItemCart = (products, index) => {
     children: [$buttonSelectDecrease, $infoSelectedText, $buttonSelectAdd],
   });
 
-  const $quantitySelectText = createElement({
-    tagName: "span",
-    className: ["quantity-select-text"],
-    textContent: "QTD: 1",
-  });
-
   const $priceTextProduct = createElement({
     tagName: "strong",
     className: ["price-text-products"],
@@ -106,7 +100,7 @@ export const CardItemCart = (products, index) => {
   const $wrapperBottomCard = createElement({
     tagName: "div",
     className: ["wrapper-bottom-card"],
-    children: [$selectQuantityWrapper, $quantitySelectText, $priceTextProduct],
+    children: [$selectQuantityWrapper, $priceTextProduct],
   });
 
   const $boxInfoCard = createElement({
@@ -130,9 +124,9 @@ export const CardItemCart = (products, index) => {
   return $card;
 };
 
-export const printQuantitySelected = (quantitySelect) => {
-  if (quantitySelect !== undefined) {
-    const $quantitySelectText = document.querySelector(".quantity-select-text");
-    $quantitySelectText.textContent = `QTD: ${quantitySelect}`;
-  }
+export const printQuantitySelected = () => {
+  const $infoSelectedText = document.querySelector(".info-selected-text");
+  dataListProducts.read().forEach((item) => {
+    $infoSelectedText.textContent = `${item.quantity}`;
+  });
 };
