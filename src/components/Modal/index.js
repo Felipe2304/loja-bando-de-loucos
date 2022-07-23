@@ -4,6 +4,8 @@ import { removeHeaderCart } from "../HeaderCart/index.js";
 import { printHeaderHome } from "../Header/index.js";
 import { removeContainerCart } from "../ContainerCart/index.js";
 import { printHome } from "../../home/index.js";
+import { dataListProducts } from "../../crudCart/index.js";
+import { getQuantityOfItens } from "../WrapperIconsHeader/index.js";
 
 importCSS("./src/components/Modal/modal.css");
 
@@ -41,6 +43,8 @@ export const Modal = () => {
       printHeaderHome($root);
       removeContainerCart();
       printHome($root);
+      dataListProducts.cleanList();
+      getQuantityOfItens();
     },
   });
 
