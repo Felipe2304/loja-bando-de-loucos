@@ -269,8 +269,9 @@ const NotProducts = () => {
 export const subTotalProducts = () => {
   const list = dataListProducts.read();
 
+  console.log(list);
   const totalPrice = list.reduce((acc, itens) => {
-    return (acc += itens.price * Number(itens.quantity));
+    return (acc += itens.price * itens.quantity);
   }, 0);
 
   const $subTotalOfProducts = document.querySelector(

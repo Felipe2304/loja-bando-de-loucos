@@ -39,13 +39,14 @@ export const printProducts = ($listProducts, products) => {
   $listProducts.innerHTML = "";
   products.forEach((infoProducts) => {
     const $products = ProductCard(infoProducts);
+    const $buttonCard = $products.querySelector(".button-card");
     $listProducts.appendChild($products);
-    getInfoProducts($products, infoProducts);
+    getInfoProducts($buttonCard, infoProducts);
   });
 };
 
-const getInfoProducts = ($products, infoProducts) => {
-  $products.addEventListener("click", () => {
+const getInfoProducts = ($buttonCard, infoProducts) => {
+  $buttonCard.addEventListener("click", () => {
     dataListProducts.create(infoProducts);
     getQuantityOfItens();
     printToast();

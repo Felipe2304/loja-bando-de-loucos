@@ -17,6 +17,7 @@ export const dataListProducts = {
   },
 
   upload: (index, quantityValue) => {
+    // console.log(index, quantityValue);
     const updatedList = listProductsCart.map((infoProducts, position) => {
       if (index === position) {
         return {

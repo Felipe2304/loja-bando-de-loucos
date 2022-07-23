@@ -37,11 +37,11 @@ export const CardItemCart = (products, index) => {
     setAttribute: ["src", "./src/assets/trash.png"],
     onclick: () => {
       dataListProducts.delete(index);
-      getQuantityOfItens();
       printCardList();
       ShowMessageNotProducts();
       getTotalProducts();
       subTotalProducts();
+      getQuantityOfItens();
     },
   });
 
@@ -51,24 +51,49 @@ export const CardItemCart = (products, index) => {
     children: [$descriptionProductCard, $trashButton],
   });
 
-  const $selectQuantity = createElement({
-    tagName: "select",
-    className: ["select-quantity"],
+  let quantitySelect = 0;
+
+  const $buttonSelectDecrease = createElement({
+    tagName: "button",
+    className: ["button-select", "button-select-decrease"],
+    textContent: "-",
+    onclick: () => {
+      if ($infoSelectedText.textContent > 1) {
+        quantitySelect += -1;
+        dataListProducts.upload(index, quantitySelect);
+        subTotalProducts();
+        $infoSelectedText.textContent = quantitySelect;
+      }
+    },
   });
 
-  const $quantitySelect = createElement({
+  const $infoSelectedText = createElement({
+    tagName: "div",
+    className: ["info-selected-text"],
+  });
+  const $buttonSelectAdd = createElement({
+    tagName: "button",
+    className: ["button-select", "button-select-add"],
+    textContent: "+",
+    onclick: () => {
+      quantitySelect += 1;
+      dataListProducts.upload(index, quantitySelect);
+      subTotalProducts();
+      $infoSelectedText.textContent = quantitySelect;
+    },
+  });
+
+  const $selectQuantityWrapper = createElement({
+    tagName: "div",
+    className: ["select-quantity-wrapper"],
+    children: [$buttonSelectDecrease, $infoSelectedText, $buttonSelectAdd],
+  });
+
+  const $quantitySelectText = createElement({
     tagName: "span",
-    className: ["quantity-select"],
+    className: ["quantity-select-text"],
     textContent: "QTD: 1",
   });
-
-  $selectQuantity.addEventListener("change", () => {
-    dataListProducts.upload(index, $selectQuantity.value);
-    $quantitySelect.textContent = `QTD: ${$selectQuantity.value}`;
-    subTotalProducts();
-  });
-
-  addQuantityProducts($selectQuantity);
 
   const $priceTextProduct = createElement({
     tagName: "strong",
@@ -79,7 +104,7 @@ export const CardItemCart = (products, index) => {
   const $wrapperBottomCard = createElement({
     tagName: "div",
     className: ["wrapper-bottom-card"],
-    children: [$selectQuantity, $quantitySelect, $priceTextProduct],
+    children: [$selectQuantityWrapper, $quantitySelectText, $priceTextProduct],
   });
 
   const $boxInfoCard = createElement({
@@ -101,15 +126,4 @@ export const CardItemCart = (products, index) => {
   });
 
   return $card;
-};
-
-const addQuantityProducts = ($selectQuantity) => {
-  for (let i = 1; i <= 10; i++) {
-    const $option = createElement({
-      tagName: "option",
-      textContent: `${i}`,
-    });
-
-    $selectQuantity.appendChild($option);
-  }
 };
