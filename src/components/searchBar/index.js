@@ -6,44 +6,25 @@ import { dataProducts } from "../../dataProducts/index.js";
 importCSS("./src/components/searchBar/searchBar.css");
 
 export const SearchBar = () => {
-  const $input = createElement({
+  const $inputSearch = createElement({
     tagName: "input",
     className: ["input-search"],
-    setAttribute: ["placeholder", "Digite o produto"],
+    setAttribute: ["placeholder", "Digite o nome do  produto"],
   });
 
-  $input.addEventListener("input", () => {
-    searchProduct($input.value);
+  $inputSearch.addEventListener("input", () => {
+    searchProduct($inputSearch.value);
   });
 
-  const $searchButtonIcon = createElement({
-    tagName: "img",
-    className: ["search-button-icon"],
-    setAttribute: ["src", "./src/assets/lupa.png"],
-  });
-
-  const $searchButton = createElement({
-    tagName: "button",
-    className: ["search-button"],
-    children: [$searchButtonIcon],
-  });
-
-  const $searchWrapper = createElement({
-    tagName: "div",
-    className: ["search-wrapper"],
-    children: [$input, $searchButton],
-  });
-
-  return $searchWrapper;
+  return $inputSearch;
 };
 
 const searchProduct = (searchValue) => {
-  const $ul = document.querySelector(".list-products");
-  const data = dataProducts().products;
+  const $listProducts = document.querySelector(".list-products");
 
-  const products = data.filter((item) => {
+  const products = dataProducts().products.filter((item) => {
     return item.description.includes(searchValue);
   });
 
-  printProducts($ul, products);
+  printProducts($listProducts, products);
 };

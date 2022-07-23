@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   background-color: rgba(0, 0, 0, 0.329);
 }
@@ -36,11 +36,11 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  padding: 2rem;
+  padding: 0 2rem;
 }
 
 .box-modal-message {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 400;
   text-align: center;
 }
@@ -53,4 +53,23 @@
   background-color: black;
   font-size: 1.6rem;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .box-modal {
+    height: 60%;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .box-modal {
+    width: 90%;
+    height: 55%;
+  }
+
+  .box-modal-message {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
 }

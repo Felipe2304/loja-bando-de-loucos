@@ -1,34 +1,20 @@
-.search-wrapper {
-  width: 40%;
-  height: 6rem;
-  display: flex;
-  align-items: center;
-}
-
 .input-search {
-  width: 85%;
-  height: 100%;
-  padding-left: 2rem;
+  width: 35rem;
+  height: 6rem;
   font-size: 1.6rem;
+  padding-left: 2rem;
   outline: none;
 }
 
-.search-button {
-  width: 15%;
-  height: 100%;
-  cursor: pointer;
-  background-color: var(--button-rd);
-  border: none;
-}
-
-.search-button:active {
-  transform: scale(0.94);
-  transition: 200ms;
-}
-
 @media screen and (max-width: 768px) {
-  .search-wrapper {
+  .input-search {
     width: 100%;
     order: 2;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .input-search {
+    height: 5rem;
   }
 }

@@ -32,3 +32,9 @@
     order: 1;
   }
 }
+
+@media screen and (max-width: 428px) {
+  .wrapper-icons-header {
+    width: 10.3rem;
+  }
+}

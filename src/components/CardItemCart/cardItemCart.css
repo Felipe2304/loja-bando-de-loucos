@@ -100,3 +100,43 @@
     box-sizing: border-box;
   }
 }
+
+@media screen and (max-width: 428px) {
+  .card-item-cart {
+    height: 12rem;
+  }
+  .box-info-card {
+    padding: 1.5rem;
+  }
+
+  .box-product-img {
+    width: 15rem;
+  }
+
+  .box-product-img img {
+    height: 100%;
+  }
+
+  .description-product-card {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .price-text-products {
+    font-size: 1.4rem;
+  }
+
+  .trash-button {
+    width: 2rem;
+  }
+
+  .select-quantity-wrapper {
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .card-item-cart {
+    height: 10rem;
+  }
+}

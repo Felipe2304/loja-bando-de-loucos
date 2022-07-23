@@ -27,12 +27,20 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 428px) {
   .logo-header {
     width: 4.5rem;
+    margin-right: 0.8rem;
   }
 
   .header-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header-title {
+    font-size: 1.6rem;
   }
 }
