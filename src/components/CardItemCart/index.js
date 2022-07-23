@@ -61,6 +61,7 @@ export const CardItemCart = (products, index) => {
       if ($infoSelectedText.textContent > 1) {
         quantitySelect += -1;
         dataListProducts.upload(index, quantitySelect);
+        printQuantitySelected(quantitySelect);
         subTotalProducts();
         $infoSelectedText.textContent = quantitySelect;
       }
@@ -78,6 +79,7 @@ export const CardItemCart = (products, index) => {
     onclick: () => {
       quantitySelect += 1;
       dataListProducts.upload(index, quantitySelect);
+      printQuantitySelected(quantitySelect);
       subTotalProducts();
       $infoSelectedText.textContent = quantitySelect;
     },
@@ -126,4 +128,11 @@ export const CardItemCart = (products, index) => {
   });
 
   return $card;
+};
+
+export const printQuantitySelected = (quantitySelect) => {
+  if (quantitySelect !== undefined) {
+    const $quantitySelectText = document.querySelector(".quantity-select-text");
+    $quantitySelectText.textContent = `QTD: ${quantitySelect}`;
+  }
 };

@@ -6,6 +6,7 @@ import { printHeaderHome } from "../Header/index.js";
 import { CardItemCart } from "../CardItemCart/index.js";
 import { dataListProducts } from "../../crudCart/index.js";
 import { Modal } from "../Modal/index.js";
+import { printQuantitySelected } from "../CardItemCart/index.js";
 
 importCSS("./src/components/ContainerCart/containerCart.css");
 
@@ -314,6 +315,7 @@ export const printContainerCart = ($root) => {
 
   printCardList();
   getTotalProducts();
+  printQuantitySelected();
 };
 
 export const removeContainerCart = () => {
