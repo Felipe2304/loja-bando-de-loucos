@@ -2,7 +2,11 @@ import { dataListProducts } from "../../crudCart/index.js";
 import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
 import { getQuantityOfItens } from "../WrapperIconsHeader/index.js";
-import { subTotalProducts, getTotalProducts } from "../ContainerCart/index.js";
+import {
+  subTotalProducts,
+  getTotalProducts,
+  printContainerCart,
+} from "../ContainerCart/index.js";
 
 import {
   ShowMessageNotProducts,
@@ -41,6 +45,7 @@ export const CardItemCart = (products, index) => {
       getTotalProducts();
       subTotalProducts();
       getQuantityOfItens();
+      printQuantitySelected();
     },
   });
 
@@ -60,16 +65,15 @@ export const CardItemCart = (products, index) => {
       if ($infoSelectedText.textContent > 1) {
         quantitySelect += -1;
         dataListProducts.upload(index, quantitySelect);
-        printQuantitySelected();
         subTotalProducts();
-        $infoSelectedText.textContent = quantitySelect;
+        printQuantitySelected();
       }
     },
   });
 
   const $infoSelectedText = createElement({
     tagName: "div",
-    className: ["info-selected-text"],
+    className: ["info-selected-text", `info-selected-text-${index}`],
   });
   const $buttonSelectAdd = createElement({
     tagName: "button",
@@ -78,9 +82,8 @@ export const CardItemCart = (products, index) => {
     onclick: () => {
       quantitySelect += 1;
       dataListProducts.upload(index, quantitySelect);
-      printQuantitySelected();
       subTotalProducts();
-      $infoSelectedText.textContent = quantitySelect;
+      printQuantitySelected();
     },
   });
 
@@ -124,9 +127,10 @@ export const CardItemCart = (products, index) => {
 };
 
 export const printQuantitySelected = () => {
-  const $infoSelectedText = document.querySelector(".info-selected-text");
-  dataListProducts.read().forEach((item) => {
-    console.log(item, item.quantity);
+  dataListProducts.read().forEach((item, index) => {
+    const $infoSelectedText = document.querySelector(
+      `.info-selected-text-${index}`
+    );
     $infoSelectedText.textContent = `${item.quantity}`;
   });
 };

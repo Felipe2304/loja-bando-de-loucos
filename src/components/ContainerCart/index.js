@@ -317,6 +317,7 @@ export const printContainerCart = ($root) => {
   printCardList();
   printQuantitySelected();
   getTotalProducts();
+  printQuantitySelected();
 };
 
 export const removeContainerCart = () => {

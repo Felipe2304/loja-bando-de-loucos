@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 3rem;
+  padding: 15rem 3rem 3rem 3rem;
 }
 
 .list-products {
@@ -26,6 +26,6 @@
 
 @media screen and (max-width: 768px) {
   .container-products {
-    padding-top: 6rem;
+    padding-top: 20rem;
   }
 }

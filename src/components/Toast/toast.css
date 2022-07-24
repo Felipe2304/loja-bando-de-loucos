@@ -4,7 +4,7 @@
   background-color: white;
   border-radius: 0 5px 5px 0;
   padding-right: 1rem;
-  position: absolute;
+  position: fixed;
   right: 4%;
   top: 10.5rem;
   display: flex;

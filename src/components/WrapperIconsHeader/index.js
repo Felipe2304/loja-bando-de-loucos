@@ -65,5 +65,7 @@ export const getQuantityOfItens = () => {
   const $infoQuantityItensCart = document.querySelector(
     ".info-quantity-itens-cart"
   );
-  $infoQuantityItensCart.textContent = totalItensProducts;
+
+  if ($infoQuantityItensCart !== null)
+    $infoQuantityItensCart.textContent = totalItensProducts;
 };
