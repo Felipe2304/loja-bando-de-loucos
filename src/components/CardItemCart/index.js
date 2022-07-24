@@ -2,12 +2,11 @@ import { dataListProducts } from "../../crudCart/index.js";
 import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
 import { getQuantityOfItens } from "../WrapperIconsHeader/index.js";
+import { subTotalProducts, getTotalProducts } from "../ContainerCart/index.js";
 
 import {
   ShowMessageNotProducts,
   printCardList,
-  getTotalProducts,
-  subTotalProducts,
 } from "../ContainerCart/index.js";
 
 importCSS("./src/components/CardItemCart/cardItemCart.css");

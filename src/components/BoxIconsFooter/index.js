@@ -1,4 +1,4 @@
-import { createElement } from "../../../utils/createElement/index.js";
+import { createElement } from "../../utils/createElement/index.js";
 
 export const BoxIconsFooter = (info) => {
   const $icon = createElement({

@@ -1,7 +1,7 @@
-import { createElement } from "../../../utils/createElement/index.js";
-import { importCSS } from "../../../utils/importCSS/index.js";
+import { createElement } from "../../utils/createElement/index.js";
+import { importCSS } from "../../utils/importCSS/index.js";
 
-importCSS("./src/components/shared/LogoTitle/logoTitle.css");
+importCSS("./src/components/LogoTitle/logoTitle.css");
 
 export const LogoTitle = () => {
   const $logo = createElement({

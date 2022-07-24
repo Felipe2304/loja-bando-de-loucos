@@ -5,11 +5,9 @@ import { dataProducts } from "../../dataProducts/index.js";
 import { dataListProducts } from "../../crudCart/index.js";
 import { printToast } from "../Toast/index.js";
 import { getQuantityOfItens } from "../WrapperIconsHeader/index.js";
-import {
-  printCardList,
-  getTotalProducts,
-  subTotalProducts,
-} from "../ContainerCart/index.js";
+import { printCardList } from "../ContainerCart/index.js";
+
+import { getTotalProducts, subTotalProducts } from "../ContainerCart/index.js";
 importCSS("./src/components/ContainerProducts/containerProducts.css");
 
 export const ContainerProducts = () => {

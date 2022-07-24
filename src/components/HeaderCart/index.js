@@ -1,7 +1,6 @@
 import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
-import { Header } from "../Header/index.js";
-import { LogoTitle } from "../shared/LogoTitle/index.js";
+import { LogoTitle } from "../LogoTitle/index.js";
 
 importCSS("./src/components/HeaderCart/headerCart.css");
 

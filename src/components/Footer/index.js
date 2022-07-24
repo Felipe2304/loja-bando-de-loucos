@@ -1,6 +1,6 @@
 import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
-import { BoxIconsFooter } from "../shared/BoxIconsFooter/index.js";
+import { BoxIconsFooter } from "../BoxIconsFooter/index.js";
 
 importCSS("./src/components/Footer/footer.css");
 

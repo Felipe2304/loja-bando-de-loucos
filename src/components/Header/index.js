@@ -2,7 +2,7 @@ import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
 import { SearchBar } from "../searchBar/index.js";
 import { WrapperIconsHeader } from "../WrapperIconsHeader/index.js";
-import { LogoTitle } from "../shared/LogoTitle/index.js";
+import { LogoTitle } from "../LogoTitle/index.js";
 importCSS("./src/components/Header/header.css");
 
 export const Header = () => {

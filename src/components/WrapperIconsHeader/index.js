@@ -1,13 +1,11 @@
 import { createElement } from "../../utils/createElement/index.js";
 import { importCSS } from "../../utils/importCSS/index.js";
 import { removeHome } from "../../home/index.js";
-import {
-  printContainerCart,
-  subTotalProducts,
-} from "../ContainerCart/index.js";
+import { printContainerCart } from "../ContainerCart/index.js";
 import { printHeaderCart } from "../HeaderCart/index.js";
 import { removeHeaderHome } from "../Header/index.js";
 import { dataListProducts } from "../../crudCart/index.js";
+import { subTotalProducts } from "../ContainerCart/index.js";
 
 importCSS("./src/components/WrapperIconsHeader/wrapperIconsHeader.css");
 
