@@ -12,6 +12,7 @@
 .side-bar-open {
   transform: translateX(0);
   opacity: 1;
+  top: 10rem;
 }
 
 .side-bar-box-title {
@@ -87,5 +88,13 @@
 @media screen and (max-width: 428px) {
   .side-bar {
     width: 75%;
+  }
+
+  .side-bar-item {
+    width: 100%;
+  }
+
+  .side-bar img {
+    margin-left: 0;
   }
 }

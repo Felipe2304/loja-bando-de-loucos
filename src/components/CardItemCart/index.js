@@ -61,7 +61,7 @@ export const CardItemCart = (products, index) => {
       if ($infoSelectedText.textContent > 1) {
         quantitySelect += -1;
         dataListProducts.upload(index, quantitySelect);
-        printQuantitySelected(quantitySelect);
+        printQuantitySelected();
         subTotalProducts();
         $infoSelectedText.textContent = quantitySelect;
       }
@@ -127,6 +127,7 @@ export const CardItemCart = (products, index) => {
 export const printQuantitySelected = () => {
   const $infoSelectedText = document.querySelector(".info-selected-text");
   dataListProducts.read().forEach((item) => {
+    console.log(item, item.quantity);
     $infoSelectedText.textContent = `${item.quantity}`;
   });
 };
