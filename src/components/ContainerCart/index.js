@@ -275,11 +275,13 @@ export const subTotalProducts = () => {
   const $subTotalOfProducts = document.querySelector(
     ".sub-total-of-products-price"
   );
-  $subTotalOfProducts.textContent = `R$ ${totalPrice.toFixed(2)}`;
 
-  const $priceText = document.querySelector(".price-text");
-  $priceText.textContent = `R$ ${totalPrice.toFixed(2)}`;
-  calcFrete(totalPrice);
+  if ($subTotalOfProducts !== null) {
+    $subTotalOfProducts.textContent = `R$ ${totalPrice.toFixed(2)}`;
+    const $priceText = document.querySelector(".price-text");
+    $priceText.textContent = `R$ ${totalPrice.toFixed(2)}`;
+    calcFrete(totalPrice);
+  }
 };
 
 const calcFrete = (totalPrice) => {
@@ -302,7 +304,9 @@ const calcFrete = (totalPrice) => {
 export const getTotalProducts = () => {
   const totalItensProducts = dataListProducts.read().length;
   const $totalProductsText = document.querySelector(".total-products-text");
-  $totalProductsText.textContent = `Total(${totalItensProducts} produtos)`;
+  if ($totalProductsText !== null) {
+    $totalProductsText.textContent = `Total(${totalItensProducts} produtos)`;
+  }
 };
 
 export const printContainerCart = ($root) => {
@@ -324,9 +328,11 @@ export const removeContainerCart = () => {
 export const printCardList = () => {
   const $listCard = document.querySelector(".list-card-cart");
 
-  $listCard.innerHTML = "";
-  dataListProducts.read().forEach((products, index) => {
-    const card = CardItemCart(products, index);
-    $listCard.appendChild(card);
-  });
+  if ($listCard !== null) {
+    $listCard.innerHTML = "";
+    dataListProducts.read().forEach((products, index) => {
+      const card = CardItemCart(products, index);
+      $listCard.appendChild(card);
+    });
+  }
 };

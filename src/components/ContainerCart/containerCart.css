@@ -174,23 +174,16 @@
   font-size: 2rem;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .container-cart {
     height: calc(100vh - 10rem);
   }
-
-  .cart-content {
-    height: 47rem;
-  }
-}
-
-@media screen and (max-width: 1440px) {
   .cart-content {
     height: 90%;
   }
 
   .buy-content {
-    height: 60%;
+    height: 58.8rem;
   }
 }
 
