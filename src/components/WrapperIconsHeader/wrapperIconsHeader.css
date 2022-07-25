@@ -8,13 +8,13 @@
 .info-quantity-itens-cart {
   font-size: 1.4rem;
   font-weight: 700;
-  color: rgb(72, 224, 72);
+  color: var(--green);
 }
 
 .icon-ball {
   height: 5rem;
   width: 5rem;
-  background-color: white;
+  background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;

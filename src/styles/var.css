@@ -1,3 +1,10 @@
 :root {
-  --button-rd: #ff0000cc;
+  --black: black;
+  --black-transparent: rgba(0, 0, 0, 0.329);
+  --light-grey: #dedede;
+  --dark-grey: #737380;
+  --grey-hover: rgb(204, 204, 183);
+  --white: #ffffff;
+  --green: rgb(72, 224, 72);
+  --red: red;
 }
